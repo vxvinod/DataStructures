@@ -1,0 +1,27 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+n = gets.chomp.to_i
+s= []
+n.times do 
+    s << gets.chomp
+end
+final = []
+s.each do |str|
+    resultStr = ""
+    even = ""
+    odd = ""
+    str.split("").each_with_index do |char, i|
+        if(i%2==0)
+            even = even + char
+        else
+            odd = odd + char
+        end
+    end
+    final << [even+ " "+odd]
+end
+
+final.each do |word|
+    puts word
+end
+
+
+
