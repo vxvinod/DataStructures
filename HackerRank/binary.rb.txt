@@ -1,0 +1,25 @@
+#!/bin/ruby
+
+require 'json'
+require 'stringio'
+
+
+
+n = gets.to_i.to_s(2).split("")
+count = 0
+index = 0
+largest = 0
+n.each_with_index do |c, i| 
+    index = i+1
+    count = 1  if(c == "1" and i==0)
+        if(c=="0" and i!=0)
+            largest = count if(largest<=count)
+            count=1
+        elsif((c == "1") and n[index].to_s =="1")
+            count=count+1
+        elsif(index == n.size)
+            largest = count if(largest<=count)
+        end
+end
+
+puts largest
